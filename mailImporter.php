@@ -81,7 +81,7 @@
 					// send file to printer
 					if( PRINT_FILE_ON_SAVE ){
 						// print downloaded data via python script
-						system("cat /home/pi/RaspberryEMailPrinter/".FILE_PATH . "/" . $filename . " | python /home/pi/py-thermal-printer/print-support.py");
+						system("cat /home/pi/RaspberryEMailPrinter/".FILE_PATH . "/" . $filename . " | python /home/pi/raspimailprint/mail-printer.py");
 						// delete downloaded mails
 						if( DELETE_FILES_AFTER_PRINT ){
 							@unlink( FILE_PATH . "/" . $filename );
