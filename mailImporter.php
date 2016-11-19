@@ -40,30 +40,36 @@
 				Helper::log( "Message Date: " . $mail->date );
 				Helper::log( "Message Attachments: " . count($attachments) );
 				
-				// 
-				$mailFile = 
-					"||||||||||||||||||||||||||||||||\n\n" .
-					$i18n['Sender'] 	. Helper::removeUmlaute($mail->fromName) . " (" . $mail->fromAddress . ") \n" .
-					$i18n['Date'] 		. $mail->date . "\n" . 
-					$i18n['Subject'] 	. Helper::removeUmlaute($mail->subject) . "\n" .
+				if( substr(trim($mail->subject),0,6) == 'Status' ){
 					
-					( count($attachments)
-					 
-						?	
-						("\n" . 
-						"********************************\n" .
-						$i18n['ContainsAttachment'] . "\n" .
-						"********************************\n") 
-						: ''
+					$mailFile = trim($mail->subject);
+					
+				}else{
+				
+					// 
+					$mailFile = 
+						"||||||||||||||||||||||||||||||||\n\n" .
+						$i18n['Sender'] 	. Helper::removeUmlaute($mail->fromName) . " (" . $mail->fromAddress . ") \n" .
+						$i18n['Date'] 		. $mail->date . "\n" . 
+						$i18n['Subject'] 	. Helper::removeUmlaute($mail->subject) . "\n" .
 						
-					) .
+						( count($attachments)
+						 
+							?	
+							("\n" . 
+							"********************************\n" .
+							$i18n['ContainsAttachment'] . "\n" .
+							"********************************\n") 
+							: ''
+							
+						) .
+						
+						"\n".
+						"||||||||||||||||||||||||||||||||\n\n" .
+						Helper::removeUmlaute($mailText) . "\n\n" .
+						"||||||||||||||||||||||||||||||||\n\n";
 					
-					"\n".
-					"||||||||||||||||||||||||||||||||\n\n" .
-					Helper::removeUmlaute($mailText) . "\n\n" .
-					"||||||||||||||||||||||||||||||||\n\n";
-					
-					
+				}	
 				// $mailFile = utf8_decode($mailFile);
 				
 				// write file
