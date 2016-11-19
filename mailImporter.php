@@ -42,7 +42,7 @@
 				
 				if( substr(trim($mail->subject),0,6) == 'Status' ){
 					
-					$mailFile = trim($mail->subject);
+					$mailFile = $mail->date .': ' . trim($mail->subject) . "\n";
 					
 				}else{
 				
