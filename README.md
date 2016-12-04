@@ -2,7 +2,7 @@
 
 An ready to use script for builing an E-Mail printer with an Raspberry Pi and a Thermal printer. See full discription here: <a href="http://blog.sebastian-martens.de/technology/how-to-build-your-own-e-mail-printer/">http://blog.sebastian-martens.de/technology/how-to-build-your-own-e-mail-printer/</a>
 
-## Usage
+## Install
 
 First be sure you are in the default pi- user home directory
 
@@ -35,6 +35,8 @@ The last step is to configure your E-Mail access data. Do this in the config/con
 		nano config/config.php
 
 You need to update the lines EMAIL_SERVER, EMAIL_USER, EMAIL_PASSWORD. Make sure you checked the other settings. By default downloaded mails will be deleted from the server.
+
+## Usage
 
 Now you are ready to execute the mail script and print your mails.
 		
