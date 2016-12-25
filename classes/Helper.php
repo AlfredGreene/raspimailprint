@@ -24,8 +24,8 @@ class Helper {
 	
 	public static function removeUmlaute( $string ){
 
-    	$from = array("Ä", "ä", "Ü", "ü" ,"Ö", "ö", "ß" );
-		$to = array("Ae", "ae", "Ue", "ue", "Oe", "oe", "ss");
+    	$from = array("Ä", "ä", "Ü", "ü" ,"Ö", "ö", "ß", "$" );
+		$to = array("Ae", "ae", "Ue", "ue", "Oe", "oe", "ss", "(USD)");
 
 		return str_replace($from, $to, $string);
 
