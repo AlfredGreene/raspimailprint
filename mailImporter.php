@@ -88,12 +88,12 @@
 					if( PRINT_FILE_ON_SAVE ){
 						// print downloaded data via python script
 						system("cat /home/pi/raspimailprint/".FILE_PATH . "/" . $filename . " | python /home/pi/raspimailprint/mail-printer.py");
+						// time to print
+						sleep(4);
 						// delete downloaded mails
 						if( DELETE_FILES_AFTER_PRINT ){
 							@unlink( FILE_PATH . "/" . $filename );
 						}
-						// time to print
-						sleep(4);
 					}
 					
 				}else{
